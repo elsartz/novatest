@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import Notes from './components/Notes'
+import AddNote from './components/AddNote'
 
 import './App.css'
 
@@ -12,10 +14,9 @@ function App() {
       </div>
       <h1>Welcome</h1>
       <div className="card">
-        <button onClick={() => {}}>
-          add note 
-        </button>
-        
+        <AddNote/>
+        <Notes/>
+
       </div>
       
     </div>

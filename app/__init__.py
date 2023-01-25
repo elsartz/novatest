@@ -1,23 +1,22 @@
 from os import getenv
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from app.db import init_db, get_db
 from app.models import Note
+import json
+import jsonpickle
+from json import JSONEncoder
 
 load_dotenv()
-
-# app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DB_URL')
-# db = SQLAlchemy(app)
 
 def create_app(test_config=None):
   # set up app config
   app = Flask(__name__, static_url_path='/')
+  CORS(app)
   app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DB_URL')
   db = SQLAlchemy(app)
-
-#   CORS(app)
   app.url_map.strict_slashes = False
   app.config.from_mapping(
     SECRET_KEY='super_secret_key'
@@ -26,19 +25,15 @@ def create_app(test_config=None):
 
   init_db(app)
 
-#   class Note(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     title = db.Column(db.String(80))
-#     content = db.Column(db.String(250))
-
-#     def __init__(self, title, content):
-#         self.title = title
-#         self.content = content
-
   @app.route('/notes', methods=['GET'])
   def get_notes():
-    notes = Note.query.all()
-    return jsonify({'notes': [note.__dict__ for note in notes]})
+    dbase = get_db()
+    notes = dbase.query(Note).all()
+   
+    sampleJson = jsonpickle.encode(notes)
+    json_data = json.loads(sampleJson)
+
+    return jsonify(json_data)
 
   @app.route('/notes', methods=['POST'])
   def add_note():
@@ -69,6 +64,3 @@ def create_app(test_config=None):
     return jsonify({'message': 'note deleted successfully'})
 
   return app
-
-# if __name__ == '__main__':
-#     app.run(debug=True)

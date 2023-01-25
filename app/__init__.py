@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from app.db import init_db, get_db
-# from app.models import Note
+from app.models import Note
 
 load_dotenv()
 

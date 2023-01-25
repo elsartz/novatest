@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS nova_db;
+
+CREATE DATABASE nova_db;

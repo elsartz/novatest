@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from app.db import init_db, get_db
+# from app.models import Note
 
 load_dotenv()
 
@@ -25,14 +26,14 @@ def create_app(test_config=None):
 
   init_db(app)
 
-  class Note(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80))
-    content = db.Column(db.String(250))
+#   class Note(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     title = db.Column(db.String(80))
+#     content = db.Column(db.String(250))
 
-    def __init__(self, title, content):
-        self.title = title
-        self.content = content
+#     def __init__(self, title, content):
+#         self.title = title
+#         self.content = content
 
   @app.route('/notes', methods=['GET'])
   def get_notes():

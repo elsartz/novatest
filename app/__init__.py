@@ -37,13 +37,12 @@ def create_app(test_config=None):
 
   @app.route('/notes', methods=['POST'])
   def add_note():
-    dbase = get_db()
     data = request.get_json()
     title = data.get('title')
     content = data.get('content')
     note = Note(title, content)
-    dbase.session.add(note)
-    dbase.session.commit()
+    db.session.add(note)
+    db.session.commit()
     return jsonify({'message': 'note added successfully'})
 
   @app.route('/notes/<id>', methods=['PUT'])

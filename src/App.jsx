@@ -1,25 +1,26 @@
 import { useState } from 'react'
 import Notes from './components/Notes'
 import AddNote from './components/AddNote'
-
-import './App.css'
-
+import './assets/style.css'
 function App() {
   
 
   return (
-    <div className="App">
-      <div>
-        
-      </div>
-      <h1>Welcome</h1>
-      <div className="card">
-        <AddNote/>
-        <Notes/>
-
-      </div>
-      
-    </div>
+    <body className="flex-column min-100-vh">
+      <header className='hero'>
+        <h1 className='app-title'>Welcome</h1>
+        <p>Write a title and a note or paste it in the textarea</p>
+      </header>
+      <main className='flex-row justify-space-between'>
+        <div className="col-12 col-md-6">
+          
+            <AddNote/>
+        </div>
+        <div className="col-12 col-md-6">
+          <Notes/>
+        </div>  
+      </main>          
+    </body>
   )
 }
 

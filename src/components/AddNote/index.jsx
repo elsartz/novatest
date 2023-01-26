@@ -24,25 +24,16 @@ export default class AddNote extends React.Component {
           }
         });
 
-
-        // axios.post('http://localhost:5000/notes', {
-        //     title: this.state.title,
-        //     content: this.state.content
-        // })
-        //     .then(res => {
-        //         console.log(res);
-        //         console.log(res.data);
-        //     });
+        if (response.ok) {
+          console.log('Note added');
+        }
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                {/* <input type="text" name="title" onChange={e => this.setState({ title: e.target.value })} /> */}
-                <input type="text" name="title" />
-                {/* <textarea name="content" onChange={e => this.setState({ content: e.target.value })} /> */}
-                <textarea name="content" />
-
+            <form className="form-input" onSubmit={this.handleSubmit}>
+               <div><span>Title <input type="text" name="title" /></span></div>
+               <div><textarea rows='8' cols='55' className="form-textarea" name="content" /></div>             
                 <button type="submit">Add Note</button>
             </form>
         );

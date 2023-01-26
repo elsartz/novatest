@@ -26,6 +26,7 @@ export default class AddNote extends React.Component {
 
         if (response.ok) {
           console.log('Note added');
+          window.location.reload();
         }
     }
 

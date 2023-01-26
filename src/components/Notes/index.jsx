@@ -29,6 +29,7 @@ export default class Notes extends React.Component {
 
         if (response.ok) {
             console.log('Note deleted');
+            window.location.reload();
         }
     }
 

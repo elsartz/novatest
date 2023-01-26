@@ -37,15 +37,16 @@ def create_app(test_config=None):
 
   @app.route('/notes', methods=['POST'])
   def add_note():
+    dbase = get_db()
     data = request.get_json()
     title = data.get('title')
     content = data.get('content')
     note = Note(title, content)
-    db.session.add(note)
-    db.session.commit()
+    dbase.session.add(note)
+    dbase.session.commit()
     return jsonify({'message': 'note added successfully'})
 
-  @app.route('/notes/<int:id>', methods=['PUT'])
+  @app.route('/notes/<id>', methods=['PUT'])
   def update_note(id):
     data = request.get_json()
     title = data.get('title')
@@ -56,11 +57,16 @@ def create_app(test_config=None):
     db.session.commit()
     return jsonify({'message': 'note updated successfully'})
 
-  @app.route('/notes/<int:id>', methods=['DELETE'])
+  @app.route('/notes/<id>', methods=['DELETE'])
   def delete_note(id):
-    note = Note.query.get(id)
-    db.session.delete(note)
-    db.session.commit()
+    dbase = get_db()
+    # note = Note.query.get(id)
+    note = dbase.query(Note).filter(Note.id == id).one()
+    print(note)
+    dbase.delete(note)
+    # dbase.session.delete(note)
+    dbase.commit()
+    # db.session.commit()
     return jsonify({'message': 'note deleted successfully'})
 
   return app

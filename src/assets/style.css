@@ -11,7 +11,7 @@
   box-sizing: border-box;
 }
 
-body {
+#body {
   background-color: var(--primary);
   margin: 0;
   padding: 0;

@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios';
 
+
 export default class Notes extends React.Component {
     constructor(props) {
         super(props);
@@ -14,13 +15,30 @@ export default class Notes extends React.Component {
             });
     }
 
+    async handleDelete(e) {
+        e.preventDefault();
+
+        const id = e.target.parentNode.id;
+// console.log(e.target.parentNode);
+        const response = await fetch(`http://localhost:5000/notes/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            console.log('Note deleted');
+        }
+    }
+
     render() {
         return (
             <div className="list-group">
                 {this.state.notes.map(note => (
-                    <div className="list-item flex-row justify-space-between align-center" key={note.id}><h3 className="text-uppercase">{note.title}</h3>
+                    <div id={note.id} className="list-item flex-row justify-space-between align-center" key={note.id}><h3 className="text-uppercase">{note.title}</h3>
                     <p>{note.content}</p>
-                    <button className="btn icon-danger">Delete</button>
+                    <button className="btn icon-danger" onClick={this.handleDelete}>Delete</button>
                     </div>
                     
                 ))}

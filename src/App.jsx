@@ -6,21 +6,20 @@ function App() {
   
 
   return (
-    <body className="flex-column min-100-vh">
+    <div id='body' className="flex-column min-100-vh">
       <header className='hero'>
         <h1 className='app-title'>Welcome</h1>
         <p>Write a title and a note or paste it in the textarea</p>
       </header>
       <main className='flex-row justify-space-between'>
-        <div className="col-12 col-md-6">
-          
+        <div className="col-12 col-md-6">          
             <AddNote/>
         </div>
         <div className="col-12 col-md-6">
           <Notes/>
         </div>  
       </main>          
-    </body>
+    </div>
   )
 }
 

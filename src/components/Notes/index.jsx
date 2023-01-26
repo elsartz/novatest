@@ -18,7 +18,10 @@ export default class Notes extends React.Component {
         return (
             <div>
                 {this.state.notes.map(note => (
-                    <div key={note.id}>{note.title}</div>
+                    <div key={note.id}><h3>{note.title}</h3>
+                    <p>{note.content}</p>
+                    </div>
+                    
                 ))}
             </div>
         );

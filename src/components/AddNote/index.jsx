@@ -7,23 +7,42 @@ export default class AddNote extends React.Component {
         this.state = { title: '', content: '' };
     }
 
-    handleSubmit(e) {
+    async handleSubmit(e) {
         e.preventDefault();
-        axios.post('http://localhost:5000/notes', {
-            title: this.state.title,
-            content: this.state.content
-        })
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            });
+
+        const title = document.querySelector('input[name="title"]').value;
+        const content = document.querySelector('textarea[name="content"]').value;
+      
+        const response = await fetch(`http://localhost:5000/notes`, {
+          method: 'POST',
+          body: JSON.stringify({
+            title,
+            content
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+
+        // axios.post('http://localhost:5000/notes', {
+        //     title: this.state.title,
+        //     content: this.state.content
+        // })
+        //     .then(res => {
+        //         console.log(res);
+        //         console.log(res.data);
+        //     });
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <input type="text" name="title" onChange={e => this.setState({ title: e.target.value })} />
-                <textarea name="content" onChange={e => this.setState({ content: e.target.value })} />
+                {/* <input type="text" name="title" onChange={e => this.setState({ title: e.target.value })} /> */}
+                <input type="text" name="title" />
+                {/* <textarea name="content" onChange={e => this.setState({ content: e.target.value })} /> */}
+                <textarea name="content" />
+
                 <button type="submit">Add Note</button>
             </form>
         );

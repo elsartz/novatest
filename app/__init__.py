@@ -13,7 +13,7 @@ load_dotenv()
 
 def create_app(test_config=None):
   # set up app config
-  app = Flask(__name__, static_url_path='/')
+  app = Flask(__name__, static_folder='/dist', static_url_path='/')
   CORS(app)
   app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DB_URL')
   db = SQLAlchemy(app)

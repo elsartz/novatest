@@ -199,6 +199,9 @@ p {
   color: var(--tertiary);
 }
 
+.custom-textfield {
+  width: 300px;
+}
 
 /* FLEX CONTENT */
 .flex-row {

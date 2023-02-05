@@ -60,9 +60,12 @@ export default class AddNote extends React.Component {
                   />
               </FormControl>
               </div>
+              <br/>
               <div className="flex-row justify-space-around">
                 <Button 
                   size="small"
+                  color="success"
+                  variant="contained"
                   startIcon={<AddIcon />}
                   type="submit">Add Note</Button>
               </div>

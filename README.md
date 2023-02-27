@@ -30,9 +30,9 @@
 
   # Tests
     Screenshots
-  [Desktop](https://github.com/elsartz/novatest/blob/main/src/assets/sample.jpg)
-  [Phone](https://github.com/elsartz/novatest/blob/main/src/assets/sample2.jpg)
-  [Tablet](https://github.com/elsartz/novatest/blob/main/src/assets/sample3.jpg)
+  ![Desktop](https://github.com/elsartz/novatest/blob/main/src/assets/sample.jpg)
+  ![Phone](https://github.com/elsartz/novatest/blob/main/src/assets/sample2.jpg)
+  ![Tablet](https://github.com/elsartz/novatest/blob/main/src/assets/sample3.jpg)
 
   # Questions
   If you have any questions, please contact me at [email](mailto:elsartz@gmail.com).

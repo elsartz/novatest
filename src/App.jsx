@@ -8,7 +8,7 @@ function App() {
   return (
     <div id='body' className="flex-column min-100-vh">
       <header className='hero'>
-        <h1 className='app-title'>Welcome</h1>
+        <h1 className='app-title'>Note Sampler</h1>
         <p>Write a title and a note or paste it in the textarea</p>
       </header>
       <main className='flex-row justify-space-between'>

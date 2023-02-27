@@ -14,7 +14,10 @@
   - [Questions](#questions)
 
   # Installation
-    It uses 'Vite', one of the quickest libraries to build your front-end application. Also MUI packages to manipulate the UI as you prefer plus a custom CSS for convinience. As for the back-end SQLAlchemy is responsible for the requests of the user with the database. There is a future connection with a cloud database if connected with Heroku. 
+    It uses 'Vite', one of the quickest libraries to build your front-end application. 
+    Also MUI packages to manipulate the UI as you prefer plus a custom CSS for convinience. 
+    As for the back-end SQLAlchemy is responsible for the requests of the user with the database. 
+    There is a future connection with a cloud database if connected with Heroku. 
 
   # Usage
     Keeping notes always is a useful thing ;)
